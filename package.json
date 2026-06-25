@@ -13,7 +13,7 @@
                          "@astrojs/mdx":  "latest",
                          "@astrojs/sitemap":  "latest",
                          "@astrojs/tailwind":  "latest",
-                         "astro":  "5.13.8",
+                         "astro":  "4.16.18",
                          "tailwindcss":  "latest",
                          "typescript":  "latest",
                          "pagefind":  "latest"
