@@ -1,0 +1,30 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import RiskBanner from '@/components/RiskBanner.astro';
+import NewsletterForm from '@/components/NewsletterForm.astro';
+import Card from '@/components/Card.astro';
+---
+<BaseLayout title="PipFury — Evidence-first forex education" description="Evidence-first forex education for VSA, Smart Money Concepts, price action, psychology, and risk-aware execution.">
+  <section class="section data-grid">
+    <div class="container grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr]">
+      <div>
+        <span class="pill">Evidence-first forex education</span>
+        <h1 class="mt-6 font-display text-5xl font-bold leading-tight md:text-7xl">Learn why price moves — without signals, hype, or fake certainty.</h1>
+        <p class="mt-6 max-w-2xl text-xl leading-9 text-muted">PipFury teaches VSA, Smart Money Concepts, price action, and trading psychology through annotated charts, transparent journal reviews, and risk-aware education.</p>
+        <div class="mt-8 flex flex-wrap gap-3"><a class="btn btn-primary" href="/learn/start-here/">Start the VSA learning path</a><a class="btn btn-secondary" href="/analysis/">Read the latest chart case file</a></div>
+        <p class="mt-5 text-sm font-semibold text-muted">No VIP signals. No profit guarantees. No hidden losses.</p>
+      </div>
+      <div class="terminal-card p-5">
+        <img src="/images/charts/xauusd-liquidity-raid-case-file.svg" alt="Annotated chart evidence mockup" class="rounded-2xl border border-steel" />
+        <h2 class="mt-5 font-display text-2xl font-bold">Chart evidence, not market theatre.</h2>
+        <p class="mt-2 text-sm leading-7 text-muted">Every serious market read separates confirmed evidence, working thesis, invalidation, outcome, and lesson.</p>
+        <p class="metric mt-4 text-amber">Evidence attached: chart + invalidation + post-review</p>
+      </div>
+    </div>
+  </section>
+  <section class="container -mt-6"><RiskBanner /></section>
+  <section class="section"><div class="container"><h2 class="font-display text-4xl font-bold md:text-5xl">Start with method, then study the market.</h2><p class="mt-4 max-w-2xl text-muted">The learning path is built for traders who want to read volume, spread, liquidity, structure, and execution with discipline.</p><div class="mt-8 grid-auto"><Card title="Beginner" label="Path 01" href="/learn/start-here/" description="Build the base: candles, volume, spread, close, support, resistance, and risk language." tags={["Risk first","Context"]}/><Card title="Intermediate" label="Path 02" href="/learn/vsa/effort-vs-result/" description="Read effort versus result, no demand, no supply, tests, liquidity pools, and structure shifts." tags={["VSA","Liquidity"]}/><Card title="Advanced" label="Path 03" href="/learn/smart-money/liquidity-raids/" description="Connect VSA, Smart Money, multi-timeframe context, sessions, and invalidation." tags={["SMC","Invalidation"]}/><Card title="Professional" label="Path 04" href="/journal/" description="Review execution, psychology, trade management, drawdowns, and rule refinement." tags={["Journal","Process"]}/></div></div></section>
+  <section class="section bg-panel/35"><div class="container grid gap-8 lg:grid-cols-2"><Card title="Latest chart case file" label="Analysis" href="/analysis/xauusd/2026-06-25-liquidity-raid-case-file/" description="XAUUSD swept prior liquidity, printed effort without meaningful result, and failed to hold above the marked level. The lesson was invalidation discipline." tags={["XAUUSD","Liquidity Raid","VSA"]}/><Card title="The journal keeps the uncomfortable parts visible" label="Journal" href="/journal/losses/2026-06-25-xauusd-loss-review/" description="The thesis was reasonable. The execution was early. The stop did its job. The lesson was confirmation discipline." tags={["Closed loss","-1R","Early entry"]}/></div></section>
+  <section class="section"><div class="container"><h2 class="font-display text-4xl font-bold">Four disciplines. One evidence trail.</h2><div class="mt-8 grid-auto"><Card title="Volume Spread Analysis" href="/learn/vsa/what-is-vsa/" description="Read the relationship between effort, result, spread, close, and background conditions." tags={["Effort","Result"]}/><Card title="Smart Money Concepts" href="/learn/smart-money/liquidity-raids/" description="Study liquidity, structure, imbalance, premium/discount, and sessions without mythology." tags={["Liquidity","Structure"]}/><Card title="Price Action" href="/learn/price-action/multi-timeframe-reading/" description="Understand rejection, acceptance, trend, range, and multi-timeframe location." tags={["Context","Structure"]}/><Card title="Trading Psychology" href="/learn/psychology/overtrading/" description="Review patience, fear, overtrading, revenge trading, and rule discipline." tags={["Discipline","Review"]}/></div></div></section>
+  <section class="section"><div class="container"><NewsletterForm /></div></section>
+</BaseLayout>

@@ -1,0 +1,16 @@
+---
+import { site } from '@/data/site';
+const { title = site.name, description = site.description, image = '/images/brand/pipfury-logo.svg', canonical } = Astro.props;
+const url = new URL(canonical || Astro.url.pathname, site.url).toString();
+const fullTitle = title.includes('PipFury') ? title : `${title} | PipFury`;
+const jsonLd = { '@context':'https://schema.org', '@type':'WebPage', name: fullTitle, description, url };
+---
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, site.url).toString()} />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

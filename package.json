@@ -1,0 +1,9 @@
+{
+  "name":"pipfury-evidence-desk",
+  "version":"1.0.0",
+  "private":true,
+  "type":"module",
+  "scripts":{"dev":"astro dev","build":"astro build && pagefind --site dist","preview":"astro preview","astro":"astro"},
+  "dependencies":{"@astrojs/mdx":"latest","@astrojs/sitemap":"latest","@astrojs/tailwind":"latest","astro":"latest","tailwindcss":"latest","typescript":"latest","pagefind":"latest"},
+  "devDependencies":{}
+}

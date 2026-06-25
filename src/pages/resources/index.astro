@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Card from '@/components/Card.astro';
+const resources = await getCollection('resources', e => !e.data.draft);
+const glossary = await getCollection('glossary', e => !e.data.draft);
+---
+<BaseLayout title="Resources" description="Glossary, chart annotation library, templates, FAQs, and video companion notes.">
+<section class="section"><div class="container"><span class="pill">Reference library</span><h1 class="mt-4 font-display text-5xl font-bold">Resources</h1><p class="mt-4 max-w-2xl text-muted">Reference material for serious study: glossary terms, chart labels, templates, and recommended study order.</p><h2 class="mt-10 font-display text-3xl font-bold">Core resources</h2><div class="mt-5 grid-auto">{resources.map(e => <Card title={e.data.title} href={'/' + e.data.slug + '/'} description={e.data.description} tags={e.data.tags} label={e.data.resourceType} />)}</div><h2 class="mt-12 font-display text-3xl font-bold">Glossary starter</h2><div class="mt-5 grid-auto">{glossary.map(e => <Card title={e.data.term} href={'/' + e.data.slug + '/'} description={e.data.definition} tags={e.data.tags} label={e.data.category} />)}</div></div></section>
+</BaseLayout>

@@ -1,0 +1,8 @@
+---
+const { level='[to be populated]' } = Astro.props;
+---
+<div class="rounded-2xl border border-red/35 bg-red/10 p-5">
+  <h3 class="font-display text-xl font-bold text-red">Invalidation</h3>
+  <p class="mt-2 text-sm leading-7 text-muted">This read is wrong if price closes beyond the marked level and the expected reaction fails to appear. Invalidation protects the process from forced bias.</p>
+  <p class="metric mt-3 text-red">Invalidation level: {level}</p>
+</div>
