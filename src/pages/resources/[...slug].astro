@@ -4,9 +4,10 @@ import ContentLayout from '@/layouts/ContentLayout.astro';
 export async function getStaticPaths() {
  const res = await getCollection('resources', e => !e.data.draft);
  const glo = await getCollection('glossary', e => !e.data.draft);
- return [...res, ...glo].map(entry => ({ params: { slug: entry.data.slug.replace('resources/','') }, props: { entry, kicker: entry.collection === 'glossary' ? 'Glossary' : 'Resources' } }));
+ return [...res, ...glo].map(entry => ({ params: { slug: entry.slug.replace('resources/','') }, props: { entry, kicker: entry.collection === 'glossary' ? 'Glossary' : 'Resources' } }));
 }
 const { entry, kicker } = Astro.props;
 const { Content } = await entry.render();
 ---
 <ContentLayout entry={entry} kicker={kicker}><Content /></ContentLayout>
+

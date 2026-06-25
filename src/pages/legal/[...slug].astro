@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import ContentLayout from '@/layouts/ContentLayout.astro';
-export async function getStaticPaths() { const entries = await getCollection('legal', e => !e.data.draft); return entries.map(entry => ({ params:{ slug: entry.data.slug.replace('legal/','') }, props:{ entry }})); }
+export async function getStaticPaths() { const entries = await getCollection('legal', e => !e.data.draft); return entries.map(entry => ({ params:{ slug: entry.slug.replace('legal/','') }, props:{ entry }})); }
 const { entry } = Astro.props; const { Content } = await entry.render();
 ---
 <ContentLayout entry={entry} kicker="Legal"><Content /></ContentLayout>
+

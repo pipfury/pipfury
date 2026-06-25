@@ -5,5 +5,7 @@ import Card from '@/components/Card.astro';
 const entries = (await getCollection('tools', e => !e.data.draft)).sort((a,b)=>(a.data.order||99)-(b.data.order||99));
 ---
 <BaseLayout title="Tools" description="Risk planning and execution tools, not prediction engines.">
-<section class="section"><div class="container"><span class="pill">PipFury</span><h1 class="mt-4 font-display text-5xl font-bold">Tools</h1><p class="mt-4 max-w-2xl text-muted">Risk planning and execution tools, not prediction engines.</p><div class="mt-8 grid-auto">{entries.map(e => <Card title={e.data.title} href={'/' + e.data.slug + '/'} description={e.data.description} tags={e.data.tags} label={e.collection} />)}</div></div></section>
+<section class="section"><div class="container"><span class="pill">PipFury</span><h1 class="mt-4 font-display text-5xl font-bold">Tools</h1><p class="mt-4 max-w-2xl text-muted">Risk planning and execution tools, not prediction engines.</p><div class="mt-8 grid-auto">{entries.map(e => <Card title={e.data.title} href={'/' + e.slug + '/'} description={e.data.description} tags={e.data.tags} label={e.collection} />)}</div></div></section>
 </BaseLayout>
+
+
