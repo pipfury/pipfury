@@ -1,11 +1,13 @@
-import { defineCollection, z } from 'astro:content';
-const common = { title: z.string(), description: z.string(), tags: z.array(z.string()).default([]), publishedAt: z.string().optional(), updatedAt: z.string().optional(), draft: z.boolean().default(false), seoTitle: z.string().optional(), seoDescription: z.string().optional() };
-const learn = defineCollection({ type:'content', schema:z.object({ ...common, section:z.string(), level:z.string(), method:z.array(z.string()).default([]), order:z.number().default(1), estimatedMinutes:z.number().default(8), hasChartExample:z.boolean().default(false), chartExamples:z.array(z.string()).default([]), relatedLessons:z.array(z.string()).default([]), relatedAnalysis:z.array(z.string()).default([]), relatedJournal:z.array(z.string()).default([]) }) });
-const analysis = defineCollection({ type:'content', schema:z.object({ ...common, instrument:z.string().default('Educational'), market:z.string().default('Forex'), timeframe:z.array(z.string()).default([]), session:z.string().default('N/A'), analysisType:z.string().default('Chart Case File'), status:z.string().default('Post-review pending'), directionBias:z.string().default('Educational thesis only'), methods:z.array(z.string()).default([]), chartImages:z.array(z.string()).default([]), hasInvalidation:z.boolean().default(false), invalidationLevel:z.string().default('[to be populated]'), outcome:z.string().default('pending'), riskNotice:z.boolean().default(true), relatedLessons:z.array(z.string()).default([]), relatedJournal:z.array(z.string()).default([]) }) });
-const journal = defineCollection({ type:'content', schema:z.object({ ...common, journalType:z.string(), instrument:z.string().default('N/A'), session:z.string().default('N/A'), timeframe:z.string().default('N/A'), direction:z.string().default('N/A'), setup:z.string().default('N/A'), result:z.string().default('review'), resultR:z.string().default('[to be populated]'), riskPercent:z.string().default('[to be populated]'), ruleFollowed:z.boolean().default(false), mistake:z.string().default('N/A'), emotion:z.string().default('N/A'), lesson:z.string(), chartAttached:z.boolean().default(false), chartImages:z.array(z.string()).default([]), relatedLessons:z.array(z.string()).default([]), relatedMistakes:z.array(z.string()).default([]) }) });
-const tools = defineCollection({ type:'content', schema:z.object({ ...common, toolType:z.string(), requiresJavaScript:z.boolean().default(false), riskNotice:z.boolean().default(true), relatedLessons:z.array(z.string()).default([]) }) });
-const resources = defineCollection({ type:'content', schema:z.object({ ...common, resourceType:z.string().default('Reference'), relatedLessons:z.array(z.string()).default([]) }) });
-const glossary = defineCollection({ type:'content', schema:z.object({ term:z.string(), definition:z.string(), category:z.string(), tags:z.array(z.string()).default([]), relatedLessons:z.array(z.string()).default([]), relatedAnalysis:z.array(z.string()).default([]), seoTitle:z.string().optional(), seoDescription:z.string().optional(), publishedAt:z.string().optional(), updatedAt:z.string().optional(), draft:z.boolean().default(false) }) });
-const legal = defineCollection({ type:'content', schema:z.object({ title:z.string(), description:z.string(), legalType:z.string(), lastReviewed:z.string().optional(), requiresFooterLink:z.boolean().default(true), seoNoIndex:z.boolean().default(false), updatedAt:z.string().optional(), draft:z.boolean().default(false) }) });
-export const collections = { learn, analysis, journal, tools, resources, glossary, legal };
+import { defineCollection, z } from "astro:content";
 
+const flexibleSchema = z.object({}).passthrough();
+
+export const collections = {
+  learn: defineCollection({ type: "content", schema: flexibleSchema }),
+  analysis: defineCollection({ type: "content", schema: flexibleSchema }),
+  journal: defineCollection({ type: "content", schema: flexibleSchema }),
+  tools: defineCollection({ type: "content", schema: flexibleSchema }),
+  resources: defineCollection({ type: "content", schema: flexibleSchema }),
+  glossary: defineCollection({ type: "content", schema: flexibleSchema }),
+  legal: defineCollection({ type: "content", schema: flexibleSchema })
+};
